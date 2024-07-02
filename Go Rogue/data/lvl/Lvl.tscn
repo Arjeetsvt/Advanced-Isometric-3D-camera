@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://data/char/Plyer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Dark/texture_04.png" type="Texture" id=2]
+[ext_resource path="res://assets/Dark/texture_03.png" type="Texture" id=3]
+[ext_resource path="res://assets/Red/texture_01.png" type="Texture" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="PrismMesh" id=4]
+material = SubResource( 3 )
+
+[node name="Lvl" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="platform" type="CSGBox" parent="."]
+transform = Transform( 20.7131, 0, 0, 0, 1, 0, 0, 0, 22.3939, 0, 0, 0 )
+use_collision = true
+material = SubResource( 1 )
+
+[node name="platform2" type="CSGBox" parent="."]
+transform = Transform( 20.7131, 0, 0, 0, 1, 0, 0, 0, 22.3939, 62.1595, 20.0803, 0 )
+use_collision = true
+material = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 14, 20, 28 )
+
+[node name="Walls" type="CSGBox" parent="."]
+transform = Transform( 10.1398, 0, 0, 0, 11.2298, 0, 0, 0, 6.562, 31.0702, 9.8316, -15.8209 )
+use_collision = true
+material = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGBox2" type="CSGBox" parent="Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.80975 )
+material = SubResource( 2 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 38.3689, 0, 0, 0, 19.4834, 0, 0, 0, 8.89808, 41.0115, 1.88004, 0 )
+use_collision = true
+mesh = SubResource( 4 )
+
+[node name="Plyer" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7472, 0 )

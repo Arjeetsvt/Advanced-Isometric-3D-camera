@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://data/char/Plyer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Orange/texture_02.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 5, 5, 1 )
+uv1_offset = Vector3( 2, 2, 2 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 2 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 27.86, 0, 0, 0, 0.27038, 0, 0, 0, 4.61589, 0, 0, 0 )
+use_collision = true
+mesh = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.767423, -0.461028, 0.445551, 0, 0.694935, 0.719073, -0.641142, -0.551833, 0.533308, 7.38387, 13.5372, 14.7712 )
+shadow_enabled = true
+
+[node name="Plyer" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4173, 5.70588, 0 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616923, -5.69259 )
+texture = ExtResource( 3 )
